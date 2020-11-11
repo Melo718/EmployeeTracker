@@ -1,0 +1,16 @@
+{
+  "name": "employee-tracker",
+  "version": "1.0.0",
+  "description": "Application to track and edit employees.",
+  "main": "index.js",
+  "dependencies": {
+    "inquirer": "^7.3.3",
+    "mysql": "^2.18.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Camilo Alvarez",
+  "license": "MIT"
+}
