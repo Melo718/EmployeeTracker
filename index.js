@@ -1,5 +1,6 @@
 var mysql = require("mysql");
 var inquirer = require("inquirer");
+require('dotenv').config();
 
 var connection = mysql.createConnection({
   host: "localhost",
@@ -110,7 +111,7 @@ function viewEmpByDepartment() {
           name: "department",
           type: "list",
           message: "Enter Department: ",
-          choices: departments
+          choices: department
         }
       )
       .then(function (answer) {
@@ -135,9 +136,9 @@ function addEmployee() {
     const managerList = res.map(employee => {
       return { name: `${employee.first_name} ${employee.last_name}`, value: employee.id }
     })
-    connection.query("SELECT * FROM role", (err, res) => {
+    connection.query("SELECT * FROM role_id", (err, res) => {
 
-      const roleList = res.map(role => { return { name: role.title, value: role.id } })
+      const roleList = res.map(role_id => { return { name: role_id.title, value: role.id } })
 
       inquirer
         .prompt([
@@ -155,13 +156,28 @@ function addEmployee() {
             name: "role-id",
             type: "list",
             message: "What is the employee's role?",
-            choices: roleList
+            choices: [
+                "Developer",
+                "Back-end",
+                "Front-end",
+                "Full-Stack",
+                "java",
+                "sql",
+            ]
           },
           {
             name: "manager-id",
             type: "list",
             message: "Who is your employee's manager?",
-            choices: managerList
+            choices: [
+                "Camilo",
+                "Pat",
+                "Allison",
+                "Dallis",
+                "Felicia",
+                "Paul",
+
+            ]
           },          
         ])
         .then(function (answer) {

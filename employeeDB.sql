@@ -1,4 +1,5 @@
 DROP DATABASE IF EXISTS employeeDB;
+
 CREATE DATABASE employeeDB;
 
 USE employeeDB;
@@ -18,7 +19,7 @@ CREATE TABLE department(
   PRIMARY KEY(id)
 );
 
-CREATE TABLE role(
+CREATE TABLE role_id(
   id INT NOT NULL AUTO_INCREMENT,
   title VARCHAR(30) NOT NULL, 
   salary DECIMAL NOT NULL,
